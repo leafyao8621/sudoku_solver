@@ -4,7 +4,6 @@
 #include "core.h"
 
 static inline void advance_iter(
-    uint8_t *grid,
     uint8_t *grid_end,
     uint8_t **iter
 ) {
@@ -76,7 +75,7 @@ int core_solve(uint8_t *grid, uint8_t size) {
     uint8_t *iter = grid;
     uint8_t *grid_end = grid + size * size * size * size;
     if (!(*iter & EMPTY)) {
-        advance_iter(grid, grid_end, &iter);
+        advance_iter(grid_end, &iter);
     }
     for (; iter < grid_end;) {
         for (
@@ -92,7 +91,7 @@ int core_solve(uint8_t *grid, uint8_t size) {
             *iter = EMPTY;
             retreat_iter(grid, &iter);
         } else {
-            advance_iter(grid, grid_end, &iter);
+            advance_iter(grid_end, &iter);
         }
     }
     return 0;
