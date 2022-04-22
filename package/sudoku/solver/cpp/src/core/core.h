@@ -10,7 +10,8 @@ namespace Core {
         uint8_t value;
     public:
         Slot(bool empty, uint8_t value);
-        friend void solve(std::vector<std::vector<Slot> > grid, uint8_t size);
+        bool get_empty();
+        uint8_t get_value();
     };
     enum Err {
         ERR_INVALID_SIZE,
