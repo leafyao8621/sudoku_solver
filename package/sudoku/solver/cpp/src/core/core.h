@@ -12,11 +12,12 @@ namespace Core {
         Slot(bool empty, uint8_t value);
         bool get_empty();
         uint8_t get_value();
+        bool inc_value(uint8_t width);
     };
     enum Err {
         ERR_INVALID_SIZE,
         ERR_NO_SOLUTION
     };
-    void solve(std::vector<std::vector<Slot> > grid, uint8_t size);
+    void solve(std::vector<std::vector<Slot> > &grid, uint8_t size);
 }
 #endif
